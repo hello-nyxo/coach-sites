@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master
+defaults:
+  run:
+    working-directory: hyvinvointivalmennukset
 jobs:
   build-test-deploy:
     runs-on: ubuntu-latest
@@ -14,26 +17,26 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           submodules: recursive
 
-      - uses: actions/checkout@v2
-      - name: Decrypt team setting
-        run: ./.github/scripts/decrypt-team-provider.sh
-        env:
-          PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+      # - uses: actions/checkout@v2
+      # - name: Decrypt team setting
+      #   run: ./.github/scripts/decrypt-team-provider.sh
+      #   env:
+      #     PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
 
-      - name: Configure amplify
-        uses: ambientlight/amplify-cli-action@0.2.1
-        with:
-          amplify_command: configure
-          amplify_env: production
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: eu-central-1
+      # - name: Configure amplify
+      #   uses: ambientlight/amplify-cli-action@0.2.1
+      #   with:
+      #     amplify_command: configure
+      #     amplify_env: production
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_REGION: eu-central-1
 
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn build
@@ -45,7 +48,7 @@ jobs:
       - uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_SITE_ID: 1ba21a66-c9ae-4662-9d58-f0bfd07bda14
         with:
           args: deploy --dir=public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
