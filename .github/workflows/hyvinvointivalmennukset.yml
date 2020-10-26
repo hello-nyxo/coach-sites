@@ -40,13 +40,19 @@ jobs:
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       #     AWS_REGION: eu-central-1
 
+      - run:
+        name: Set Registry
+        command: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > hyvinvointivalmennukset/.npmrc
+          echo "@YOUR_ORGANISATION:registry=https://npm.pkg.github.com/" >> hyvinvointivalmennukset/.npmrc
+
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn build
         env:
           GATSBY_TELEMETRY_DISABLED: 1
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          GITHUB_TOKEN: $ ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: netlify/actions/cli@master
         env:
