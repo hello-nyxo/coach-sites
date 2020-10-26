@@ -17,11 +17,11 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           submodules: recursive
 
-      # - uses: actions/checkout@v2
-      # - name: Decrypt team setting
-      #   run: ./.github/scripts/decrypt-team-provider.sh
-      #   env:
-      #     PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+      - uses: actions/checkout@v2
+      - name: Decrypt team setting
+        run: ./.github/scripts/decrypt-team-provider.sh
+        env:
+          PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
@@ -39,9 +39,8 @@ jobs:
       #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       #     AWS_REGION: eu-central-1
-
+      - name: Set Registry
       - run:
-        name: Set Registry
         command: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > hyvinvointivalmennukset/.npmrc
           echo "@YOUR_ORGANISATION:registry=https://npm.pkg.github.com/" >> hyvinvointivalmennukset/.npmrc
