@@ -37,9 +37,10 @@ jobs:
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       #     AWS_REGION: eu-central-1
 
+      - uses: actions/checkout@v1
+        working-directory: hyvinvointivalmennukset
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn build
-        working-directory: dart_project
         env:
           GATSBY_TELEMETRY_DISABLED: 1
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
@@ -47,7 +48,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: netlify/actions/cli@master
-        working-directory: dart_project
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: 1ba21a66-c9ae-4662-9d58-f0bfd07bda14
