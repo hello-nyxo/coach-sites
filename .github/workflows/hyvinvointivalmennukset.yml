@@ -38,6 +38,8 @@ jobs:
           node-version: "12.x"
           registry-url: "https://npm.pkg.github.com"
           scope: "@hello-nyxo"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         working-directory: hyvinvointivalmennukset
