@@ -45,6 +45,8 @@ jobs:
         working-directory: hyvinvointivalmennukset
         run: |
           yarn install --frozen-lockfile --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         working-directory: hyvinvointivalmennukset
