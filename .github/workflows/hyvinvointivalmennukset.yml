@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: "12.x"
           registry-url: "https://npm.pkg.github.com"
+          always-auth: true
           scope: "@hello-nyxo"
 
       # - name: Configure amplify
