@@ -14,8 +14,8 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           submodules: recursive
 
-      - uses: actions/checkout@v2
       - name: Decrypt team setting
+        uses: actions/checkout@v2
         run: ./.github/scripts/decrypt-team-provider.sh
         env:
           PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
@@ -31,11 +31,11 @@ jobs:
       #     AWS_REGION: eu-central-1
 
       - name: Switch to project folder
-      - uses: actions/checkout@v1
+        uses: actions/checkout@v1
         working-directory: hyvinvointivalmennukset
 
       - name: Setup Node.js
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: "12.x"
           registry-url: "https://npm.pkg.github.com"
@@ -43,12 +43,12 @@ jobs:
 
       - name: Install dependencies
         working-directory: hyvinvointivalmennukset
-      - run: |
+        run: |
           yarn install --frozen-lockfile --non-interactive
 
       - name: Build
         working-directory: hyvinvointivalmennukset
-      - run: |
+        run: |
           yarn build
         env:
           GATSBY_TELEMETRY_DISABLED: 1
