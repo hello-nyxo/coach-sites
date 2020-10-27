@@ -63,7 +63,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: "1ba21a66-c9ae-4662-9d58-f0bfd07bda14"
         with:
-          args: deploy --dir=public --prod
+          args: deploy --dir=hyvinvointivalmennukset/public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
       - name: Spam Slack
