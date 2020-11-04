@@ -71,7 +71,7 @@ jobs:
           channel: "#development"
           username: "hyvinvointivalmennukset.nyxo.app"
           status: ${{ job.status }}
-          success_text: "New version (#${env.GITHUB_RUN_NUMBER}) of Hyvinvointivalmennukset completed successfully. Go to coaching.nyxo.app to see it in action"
+          success_text: "New version (#${env.GITHUB_RUN_NUMBER}) of Hyvinvointivalmennukset completed successfully. Go to hyvinvointivalmennukset.nyxo.app to see it in action"
           failure_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) of Hyvinvointivalmennukset failed. Please go see what's wrong with this build"
           cancelled_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) was cancelled"
           fields: |
