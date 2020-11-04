@@ -28,10 +28,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
 
-      - name: Switch to project folder
-        uses: actions/checkout@v1
-        working-directory: hyvinvointivalmennukset
-
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
