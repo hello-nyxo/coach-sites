@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Perttu Lähteenlahti <perttu@nyxo.fi>",
   "dependencies": {
-    "@hello-nyxo/gatsby-theme-nyxo-coaching": "0.0.105",
+    "@hello-nyxo/gatsby-theme-nyxo-coaching": "0.0.121",
     "gatsby": "^2.24.79",
     "gatsby-image": "^2.4.21",
     "gatsby-plugin-manifest": "^2.4.34",
