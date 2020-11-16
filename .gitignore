@@ -87,7 +87,7 @@ amplify/backend/awscloudformation
 build/
 dist/
 node_modules/
-aws-exports.js
+#aws-exports.js
 amplify/team-provider-info.json
 amplify/backend/api/nyxodev/build
 amplify/backend/api/nyxodev/resolvers
