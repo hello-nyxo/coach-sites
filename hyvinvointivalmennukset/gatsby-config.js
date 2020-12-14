@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    author: `Hyvinvointivalmennukset`,
-    title: `Hyvinvointivalmennukset`,
-    description: `Hyvinvointivalmennukset`,
+    author: `DoBe Hyvinvointivalmennukset`,
+    title: `DoBe Hyvinvointivalmennukset`,
+    description: `Do and Be Hyvinvointivalmennukset`,
     siteUrl: `https://hyvinvointivalmennukset.nyxo.app`,
     social: {
       twitter: `Hyvinvointivalmennukset`,
