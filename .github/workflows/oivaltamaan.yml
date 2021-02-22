@@ -57,7 +57,7 @@ jobs:
       - uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: "1ba21a66-c9ae-4662-9d58-f0bfd07bda14"
+          NETLIFY_SITE_ID: "5af111ac-6a8e-4164-946e-3ba97182999c"
         with:
           args: deploy --dir=oivaltamaan/public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
